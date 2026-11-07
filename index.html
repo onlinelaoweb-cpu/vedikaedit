@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Vedika Edit: Budget Fashion Finds &amp; Style Guides</title>
+<meta name="description" content="Budget fashion finds and style guides: kurtis, sarees, jewellery and winter layers, picked by price, with an outfit finder and Amazon.in links.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Hanken+Grotesk:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+  /* Layout: a plum hero band with a gold jharokha-arch motif, then light sections. Category cards are arch-shaped, like palace windows. */
+  :root {
+    --bg: #FAF5F7;
+    --surface: #FFFFFF;
+    --ink: #1F0F1D;
+    --muted: #6E5B69;
+    --line: #EADCE3;
+    --accent: #B0125B;
+    --hero-bg: #3A0F3B;
+    --hero-bg-2: #5A1A55;
+    --hero-fg: #FFF7FA;
+    --hero-muted: #D9BFD0;
+    --gold: #E2B04A;
+    --gold-line: rgba(226, 176, 74, 0.55);
+    --shadow: rgba(58, 15, 59, 0.28);
+    --s1a: #9E0F52; --s1b: #CF3F78;
+    --s2a: #0B4F5E; --s2b: #1F8579;
+    --s3a: #8F3F00; --s3b: #C26B0A;
+    --s4a: #25226B; --s4b: #4F4FC4;
+    --s5a: #0B5A3D; --s5b: #2E8F66;
+    --s6a: #43124A; --s6b: #7C3283;
+    --s7a: #9B1D16; --s7b: #D24B3A;
+    --s8a: #173556; --s8b: #3F6F9E;
+    --font-display: "Bodoni Moda", "Tiro Devanagari Hindi", "Noto Serif Devanagari", "Didot", "Times New Roman", serif;
+    --font-body: "Hanken Grotesk", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+    --font-deva: "Tiro Devanagari Hindi", "Noto Serif Devanagari", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #140B13; --surface: #211420; --ink: #F6ECF2; --muted: #B9A5B3; --line: #3A2B38;
+      --accent: #FF6FA8; --hero-bg: #2A0B2B; --hero-bg-2: #45143F; --shadow: rgba(0, 0, 0, 0.55);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #140B13; --surface: #211420; --ink: #F6ECF2; --muted: #B9A5B3; --line: #3A2B38;
+    --accent: #FF6FA8; --hero-bg: #2A0B2B; --hero-bg-2: #45143F; --shadow: rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .inner {
+    width: 100%; max-width: 1072px; margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* hero band */
+  .band-hero {
+    background:
+      radial-gradient(circle at 1px 1px, rgba(226, 176, 74, 0.16) 1.4px, transparent 1.7px) 0 0 / 22px 22px,
+      linear-gradient(165deg, var(--hero-bg) 0%, var(--hero-bg-2) 130%);
+    color: var(--hero-fg);
+    padding-block: 18px 64px;
+  }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 40px; }
+  .brand { font-family: "Bodoni Moda", "Didot", "Times New Roman", serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.01em; text-decoration: none; }
+  .brand i { color: var(--gold); font-weight: 500; }
+  .top nav { display: flex; gap: 22px; font-size: 0.9rem; }
+  .top nav a { text-decoration: none; color: var(--hero-muted); }
+  .top nav a:hover { color: var(--gold); }
+
+  .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; }
+  .hero-copy { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+  .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .hero .label { color: var(--gold); }
+  .deva-line { font-family: var(--font-deva); font-size: 1.15rem; color: var(--hero-muted); margin: -8px 0 0; }
+  h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2.6rem, 8.5vw, 5.2rem); line-height: 1.02; letter-spacing: -0.01em;
+    margin: 0; text-wrap: balance; max-width: 13ch;
+  }
+  h1 em { font-style: italic; font-weight: 500; color: var(--gold); }
+  .lede { max-width: 54ch; margin: 0; color: var(--hero-muted); font-size: 1.05rem; }
+  .disclosure { font-size: 0.8rem; color: var(--hero-muted); margin: 0; max-width: 62ch; opacity: 0.9; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .tag {
+    all: unset; box-sizing: border-box; cursor: pointer;
+    display: flex; flex-direction: column; gap: 2px; min-width: 120px;
+    padding: 12px 18px; border: 1.5px solid var(--gold-line); border-radius: 14px;
+    color: var(--hero-fg); background: rgba(255, 255, 255, 0.04);
+  }
+  .tag b { font-family: var(--font-display); font-size: 1.75rem; line-height: 1.05; font-weight: 700; }
+  .tag span { font-size: 0.78rem; color: var(--hero-muted); }
+  .tag:hover { border-color: var(--gold); background: rgba(226, 176, 74, 0.12); }
+  .tag[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: #2A0B2B; }
+  .tag[aria-pressed="true"] span { color: #4A2A3F; }
+  .tag:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .hero-art { position: absolute; right: -6px; top: -8px; width: 150px; opacity: 0.32; z-index: 0; pointer-events: none; }
+  .hero-art svg { display: block; width: 100%; height: auto; }
+  .arch-o { fill: url(#archFill); stroke: var(--gold); stroke-width: 2; }
+  .arch-m { fill: none; stroke: var(--gold); stroke-opacity: 0.55; stroke-width: 1.2; }
+  .arch-i { fill: url(#archInner); stroke: var(--gold); stroke-opacity: 0.4; stroke-width: 1; }
+  .dot { fill: var(--gold); }
+  .jh { fill: url(#gold); }
+  .art-text { fill: var(--gold); font-family: var(--font-deva); font-size: 30px; text-anchor: middle; }
+
+  /* light sections */
+  .stack { display: flex; flex-direction: column; gap: 72px; padding-block: 64px 72px; }
+  .section-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 22px; }
+  h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.7rem, 5vw, 2.5rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+  .now { color: var(--muted); font-size: 0.95rem; margin: 0; max-width: 60ch; }
+  .now strong { color: var(--accent); font-weight: 600; }
+
+  /* outfit finder */
+  .finder {
+    display: flex; flex-direction: column; gap: 22px; padding: 26px;
+    background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--gold);
+    border-radius: 6px; box-shadow: 0 24px 44px -30px var(--shadow);
+  }
+  .f-row { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .pill {
+    all: unset; box-sizing: border-box; cursor: pointer;
+    padding: 8px 15px; border: 1.5px solid var(--line); border-radius: 999px;
+    font-size: 0.9rem; font-weight: 500; background: var(--bg);
+  }
+  .pill:hover { border-color: var(--accent); }
+  .pill[aria-pressed="true"] { background: var(--hero-bg); border-color: var(--hero-bg); color: var(--hero-fg); }
+  .pill:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .budget-input { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .budget-input input {
+    font: inherit; width: 9ch; padding: 8px 10px; border: 1.5px solid var(--line);
+    background: var(--bg); color: var(--ink); border-radius: 6px;
+  }
+  .budget-input input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .look { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .look li { border-bottom: 1px solid var(--line); }
+  .look a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 14px 2px; text-decoration: none; align-items: baseline; }
+  .look a:hover .nm { color: var(--accent); }
+  .nm { font-weight: 600; min-width: 0; }
+  .cap { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .sub { grid-column: 1 / -1; font-size: 0.85rem; color: var(--muted); }
+  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; font-size: 0.88rem; color: var(--muted); }
+  .total strong { color: var(--ink); font-family: var(--font-display); font-size: 1.3rem; }
+
+  /* arch-top category cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 20px; }
+  .card {
+    display: flex; flex-direction: column; min-width: 0; overflow: hidden; text-decoration: none;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px 999px 8px 8px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 24px 40px -26px var(--shadow); }
+  .swatch {
+    display: grid; place-items: center; min-height: 168px; padding-top: 28px;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.16) 1.2px, transparent 1.5px) 0 0 / 16px 16px,
+      linear-gradient(165deg, var(--sa), var(--sb));
+  }
+  .grid .card:nth-child(1) { --sa: var(--s1a); --sb: var(--s1b); }
+  .grid .card:nth-child(2) { --sa: var(--s2a); --sb: var(--s2b); }
+  .grid .card:nth-child(3) { --sa: var(--s3a); --sb: var(--s3b); }
+  .grid .card:nth-child(4) { --sa: var(--s4a); --sb: var(--s4b); }
+  .grid .card:nth-child(5) { --sa: var(--s5a); --sb: var(--s5b); }
+  .grid .card:nth-child(6) { --sa: var(--s6a); --sb: var(--s6b); }
+  .grid .card:nth-child(7) { --sa: var(--s7a); --sb: var(--s7b); }
+  .grid .card:nth-child(8) { --sa: var(--s8a); --sb: var(--s8b); }
+  .deva { font-family: var(--font-deva); font-size: 2.5rem; line-height: 1.2; color: #FFFFFF; text-align: center; padding-inline: 8px; }
+  .cbody { display: flex; flex-direction: column; gap: 6px; padding: 16px 20px 20px; flex: 1; }
+  .card h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.9rem; flex: 1; }
+  .go { margin-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--gold); align-self: flex-start; }
+
+  .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 28px; }
+  .note { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding-top: 16px; border-top: 3px solid var(--gold); }
+  .note h3 { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.2; margin: 0; }
+  .note p { margin: 0; color: var(--muted); }
+  .note a { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+
+  /* footer band */
+  .band-foot { background: var(--hero-bg); color: var(--hero-muted); padding-block: 32px 36px; font-size: 0.85rem; }
+  .band-foot .inner { display: flex; flex-direction: column; gap: 8px; }
+  .band-foot p { margin: 0; max-width: 70ch; }
+  .foot-brand { font-family: "Bodoni Moda", "Didot", "Times New Roman", serif; font-weight: 700; font-size: 1.2rem; color: var(--hero-fg); }
+  .foot-brand i { color: var(--gold); font-weight: 500; }
+
+  @media (min-width: 820px) {
+    .hero { grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr); gap: 48px; }
+    .hero-art { position: static; width: 100%; max-width: 300px; opacity: 1; justify-self: center; }
+  }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+
+  .guides { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .gcard { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px; text-decoration: none; transition: transform .18s ease, border-color .18s ease; }
+  .gcard:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .glabel { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .gcard h3 { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.25; margin: 0; }
+  .gcard p { margin: 0; color: var(--muted); font-size: 0.9rem; flex: 1; }
+  .band-foot a { color: var(--hero-fg); }
+  @media (prefers-reduced-motion: reduce) { .gcard { transition: none; } .gcard:hover { transform: none; } }
+
+  /* language switcher */
+  .top { align-items: center; }
+  .top-right { display: flex; align-items: center; gap: 12px 22px; flex-wrap: wrap; margin-left: auto; }
+  .top-right nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  details.lang { position: relative; border: 0; padding: 0; font-size: 0.9rem; margin-left: auto; }
+  details.lang:last-of-type { border: 0; }
+  .lang summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    border: 1.5px solid var(--gold-line); border-radius: 999px; color: var(--hero-fg); font-weight: 500; }
+  .lang summary::-webkit-details-marker { display: none; }
+  .lang summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(45deg) translateY(-2px); }
+  .lang summary:hover, .lang[open] summary { border-color: var(--gold); background: rgba(226, 176, 74, 0.12); }
+  .lang-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; width: 250px; max-height: 70vh; overflow-y: auto;
+    background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px;
+    box-shadow: 0 24px 44px -24px var(--shadow); padding: 8px; display: flex; flex-direction: column; }
+  .lang-menu a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 9px 10px; border-radius: 4px; text-decoration: none; color: var(--ink); }
+  .lang-menu a small { color: var(--muted); font-size: 0.75rem; }
+  .lang-menu a:hover { background: var(--bg); color: var(--accent); }
+  .lang-menu a[aria-current="true"] { font-weight: 600; background: var(--bg); }
+  .lang-menu a.off { opacity: 0.6; }
+  .lang-sep { margin: 8px 0 2px; padding: 10px 10px 4px; border-top: 1px solid var(--line); font-size: 0.72rem; color: var(--muted); }
+  .lang-hint { margin: 4px 10px 6px; font-size: 0.78rem; color: var(--accent); }
+  @media (max-width: 640px) { .top-right { width: 100%; justify-content: space-between; } }
+
+  /* Hindi: Devanagari needs more line-height, no letter-spacing, and Tiro has a single weight */
+  :root:lang(hi) body { line-height: 1.8; }
+  :root:lang(hi) h1, :root:lang(hi) h2, :root:lang(hi) h3 { font-weight: 400; line-height: 1.3; letter-spacing: 0; }
+  :root:lang(hi) h1 { max-width: 17ch; }
+  :root:lang(hi) h1 em { font-style: normal; }
+  :root:lang(hi) .label, :root:lang(hi) .glabel { letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+  :root:lang(hi) .tbl tfoot td { font-weight: 400; }
+  :root:lang(hi) .tag b, :root:lang(hi) .cap, :root:lang(hi) .total strong { font-weight: 700; }
+  :root:lang(hi) .deva-line.alt { font-family: var(--font-display); font-style: italic; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+<div class="band-hero">
+  <div class="inner">
+    <header class="top">
+      <a class="brand" href="#top">The Vedika <i>Edit</i></a>
+      <div class="top-right">
+        <nav aria-label="Sections">
+          <a href="#finder">Outfit finder</a>
+          <a href="#shop">Shop</a>
+          <a href="#guides">Guides</a>
+          <a href="#notes">Style notes</a>
+        </nav>
+        <details class="lang"><summary aria-label="Language"><span aria-hidden="true">&#127760;</span> English</summary><div class="lang-menu"><a href="index.html" lang="en" hreflang="en" aria-current="true">English</a><a href="hi.html" lang="hi" hreflang="hi">हिन्दी<small>Hindi</small></a><div class="lang-sep">More languages (auto-translated by Google)</div><p class="lang-hint" hidden>Regional languages work on the live website, not in this preview.</p><a href="#" data-tl="ta" lang="ta">தமிழ்<small>Tamil</small></a><a href="#" data-tl="te" lang="te">తెలుగు<small>Telugu</small></a><a href="#" data-tl="bn" lang="bn">বাংলা<small>Bengali</small></a><a href="#" data-tl="mr" lang="mr">मराठी<small>Marathi</small></a><a href="#" data-tl="gu" lang="gu">ગુજરાતી<small>Gujarati</small></a><a href="#" data-tl="kn" lang="kn">ಕನ್ನಡ<small>Kannada</small></a><a href="#" data-tl="ml" lang="ml">മലയാളം<small>Malayalam</small></a><a href="#" data-tl="pa" lang="pa">ਪੰਜਾਬੀ<small>Punjabi</small></a><a href="#" data-tl="or" lang="or">ଓଡ଼ିଆ<small>Odia</small></a><a href="#" data-tl="as" lang="as">অসমীয়া<small>Assamese</small></a><a href="#" data-tl="ur" lang="ur">اردو<small>Urdu</small></a></div></details>
+      </div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <span class="label">Fashion finds &middot; Amazon.in</span>
+        <h1>Look stylish, <em>on a budget.</em></h1>
+        <p class="deva-line" lang="hi">आपका बजट, आपका स्टाइल</p>
+        <p class="lede">From kurtis to jhumkas, fashion finds from Amazon, picked by price. Choose your budget first and every link below opens to match it.</p>
+        <ul class="tags" id="bands" aria-label="Choose your budget"></ul>
+        <p class="disclosure">Disclosure: As an Amazon Associate I earn from qualifying purchases. It costs you nothing extra when you buy through our links.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <defs>
+            <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:var(--hero-bg-2)"/>
+              <stop offset="1" style="stop-color:var(--hero-bg)"/>
+            </linearGradient>
+            <linearGradient id="archInner" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:var(--s1b)"/>
+              <stop offset="1" style="stop-color:var(--s6a)"/>
+            </linearGradient>
+            <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" style="stop-color:#F4D58B"/>
+              <stop offset="1" style="stop-color:#C98F1E"/>
+            </linearGradient>
+          </defs>
+          <path class="arch-o" d="M12 336 V130 A118 118 0 0 1 248 130 V336 Z"/>
+          <path class="arch-m" d="M36 336 V134 A94 94 0 0 1 224 134 V336 Z"/>
+          <path class="arch-i" d="M62 336 V138 A68 68 0 0 1 198 138 V336 Z"/>
+          <circle class="dot" cx="236" cy="130" r="3"/>
+          <circle class="dot" cx="222" cy="80" r="3"/>
+          <circle class="dot" cx="186" cy="42" r="3"/>
+          <circle class="dot" cx="130" cy="22" r="3.5"/>
+          <circle class="dot" cx="74" cy="42" r="3"/>
+          <circle class="dot" cx="38" cy="80" r="3"/>
+          <circle class="dot" cx="24" cy="130" r="3"/>
+          <circle class="jh" cx="130" cy="126" r="6"/>
+          <path class="jh" d="M130 138 C108 138 106 166 108 184 C110 206 120 214 130 220 C140 214 150 206 152 184 C154 166 152 138 130 138 Z"/>
+          <circle class="jh" cx="130" cy="232" r="4.5"/>
+          <circle class="jh" cx="114" cy="226" r="3"/>
+          <circle class="jh" cx="146" cy="226" r="3"/>
+          <text class="art-text" x="130" y="296" lang="hi">वेदिका</text>
+        </svg>
+      </div>
+    </section>
+  </div>
+</div>
+
+<main class="inner stack">
+  <section id="finder" aria-labelledby="finder-h">
+    <div class="section-head">
+      <span class="label">Outfit finder</span>
+      <h2 id="finder-h">A full look, within your budget</h2>
+      <p class="now">Pick an occasion and a total budget. You get a budget for each item, and every link opens straight on Amazon.</p>
+    </div>
+    <div class="finder">
+      <div class="f-row">
+        <span class="label" id="occ-label">Where are you going?</span>
+        <ul class="pills" id="occs" aria-labelledby="occ-label"></ul>
+      </div>
+      <div class="f-row">
+        <label class="label" for="budget">Total budget</label>
+        <div class="budget-input">
+          <ul class="pills" id="budgets" aria-label="Total budget"></ul>
+          <span>or type: &#8377;</span>
+          <input id="budget" type="number" inputmode="numeric" min="500" max="50000" step="100" value="3000">
+        </div>
+      </div>
+      <ul class="look" id="look" aria-live="polite"></ul>
+      <div class="total"><span>Prices change on Amazon; this is only a budget guide.</span><strong id="total"></strong></div>
+    </div>
+  </section>
+
+  <section id="shop" aria-labelledby="shop-h">
+    <div class="section-head">
+      <span class="label">By category</span>
+      <h2 id="shop-h">What are you looking for?</h2>
+      <p class="now" id="now" aria-live="polite"></p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="guides" aria-labelledby="guides-h">
+    <div class="section-head">
+      <span class="label">Guides</span>
+      <h2 id="guides-h">Read before you buy</h2>
+      <p class="now">Short, useful guides: what to check, what to avoid and how to split your budget.</p>
+    </div>
+    <div class="guides">
+      <a class="gcard" href="wedding-kurta-set-under-2000.html"><span class="glabel">Wedding guide</span><h3>Wedding Kurta Set Under ₹2,000: How to Choose</h3><p>Fabric, size chart, colours and a full ₹3,500 look.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="college-kurti-under-500.html"><span class="glabel">College guide</span><h3>Kurti Under ₹500 for College: What to Look For</h3><p>Fabric, size, colour fading and 3 looks from one kurti.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="office-wear-under-4000.html"><span class="glabel">Office guide</span><h3>5 Office Days, 5 Looks: In ₹4,000</h3><p>3 kurtis, 2 bottoms, 1 bag: a 5-day plan.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="winter-layering-shrug-guide.html"><span class="glabel">Winter guide</span><h3>Winter Layering: Looks with a Shrug, Sweater and Stole</h3><p>4 ways with a shrug, sweater and stole, in ₹2,500.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="how-to-choose-jhumkas.html"><span class="glabel">Jewellery guide</span><h3>How to Choose Jhumkas: By Outfit and Face Shape</h3><p>By outfit and face shape, with comfort in mind.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="saree-under-1000.html"><span class="glabel">Saree guide</span><h3>How to Choose a Saree Under ₹1,000</h3><p>Identifying fabrics, blouse piece and ready-to-wear.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="ethnic-wear-footwear-jutti-sandals.html"><span class="glabel">Footwear guide</span><h3>Footwear with Ethnic Wear: Jutti or Sandals?</h3><p>What to wear with kurta, saree and lehenga.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="online-fashion-shopping-mistakes.html"><span class="glabel">Shopping guide</span><h3>7 Mistakes to Avoid When Buying Fashion Online</h3><p>From size charts to return policies, everything.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="co-ord-set-styling.html"><span class="glabel">Styling guide</span><h3>How to Style a Co-ord Set: 4 Easy Ways</h3><p>Full set, as separates, with a jacket, with accessories.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="festive-look-under-1500.html"><span class="glabel">Festive guide</span><h3>A Festive Look in ₹1,500: Diwali and Family Functions</h3><p>Kurti, jhumkas and dupatta in one palette.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="how-to-measure-size-for-online-clothes.html"><span class="glabel">Size guide</span><h3>How to Measure Yourself for Online Clothes</h3><p>Take 4 measurements in 5 minutes and stop guessing sizes.</p><span class="go">Read &rarr;</span></a>
+      <a class="gcard" href="party-dress-under-1500.html"><span class="glabel">Party guide</span><h3>Party Dress Under ₹1,500: How to Choose</h3><p>Fabric, fit, colours and a full ₹1,500 look.</p><span class="go">Read &rarr;</span></a>
+      </div>
+  </section>
+
+  <section id="notes" aria-labelledby="notes-h">
+    <div class="section-head">
+      <span class="label">November &middot; weddings &amp; winter</span>
+      <h2 id="notes-h">Style notes for this season</h2>
+    </div>
+    <div class="notes" id="notesGrid"></div>
+  </section>
+</main>
+
+<footer class="band-foot">
+  <div class="inner">
+    <span class="foot-brand">The Vedika <i>Edit</i></span>
+    <p>As an Amazon Associate I earn from qualifying purchases.</p>
+    <p>Prices, offers and availability on Amazon.in can change at any time. Check the final price on Amazon before you buy. All links open on Amazon.in.</p>
+    <p><a href="about.html">About</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="contact.html">Contact</a></p>
+    <p data-contact data-label="Contact: " hidden></p>
+    <p>&copy; The Vedika Edit</p>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script>
+  var D = {"bands": [{"id": "499", "num": "₹499", "sub": "and under", "suffix": "under 499", "say": "under ₹499"}, {"id": "999", "num": "₹999", "sub": "and under", "suffix": "under 999", "say": "under ₹999"}, {"id": "1999", "num": "₹1999", "sub": "and under", "suffix": "under 1999", "say": "under ₹1999"}, {"id": "any", "num": "All", "sub": "no limit", "suffix": "", "say": "at any budget"}], "cats": [{"deva": "कुर्ती", "name": "Kurtis & Kurta Sets", "hint": "From office to weddings, for everyday and for functions.", "q": "kurta set for women"}, {"deva": "साड़ी", "name": "Sarees", "hint": "Cotton, georgette and silk-look, for every occasion.", "q": "saree for women"}, {"deva": "को-ऑर्ड", "name": "Co-ord Sets", "hint": "One set, a ready look in a minute.", "q": "co-ord set for women"}, {"deva": "ड्रेस", "name": "Western Dresses", "hint": "For brunch, dates and outings.", "q": "western dress for women"}, {"deva": "झुमके", "name": "Jhumkas & Jewellery", "hint": "When the outfit is simple, jhumkas do the talking.", "q": "jhumka earrings for women"}, {"deva": "बैग", "name": "Handbags & Slings", "hint": "Everyday bags and party clutches.", "q": "handbag for women"}, {"deva": "जूतियाँ", "name": "Juttis & Sandals", "hint": "Comfortable footwear to go with ethnic wear.", "q": "jutti for women"}, {"deva": "जैकेट", "name": "Shrugs & Winter Layers", "hint": "Shrugs, jackets and stoles for NCR winters.", "q": "women shrug jacket winter"}], "notes": [{"h": "If you're a wedding guest", "p": "If the outfit is heavy, keep the jewellery light. If the outfit is simple, make jhumkas or a choker the star. Don't go heavy on both at once.", "q": "wedding guest ethnic wear women", "cta": "See ethnic looks"}, {"h": "Layering in winter", "p": "Put a long shrug over a kurta or dress. Deep colours and a stole, and the look is complete.", "q": "long shrug for women", "cta": "See shrugs"}, {"h": "A simple budget rule", "p": "Buy one statement piece and keep everything else basic. That way every item in the wardrobe can be worn 3-4 different ways.", "q": "kurti with dupatta set", "cta": "See kurti sets"}], "occs": [{"id": "shaadi", "label": "Wedding / function", "items": [{"name": "Kurta set / saree", "q": "kurta set for women party wear", "w": 45, "tip": "Sets that come with a dupatta are often cheaper"}, {"name": "Jhumkas / jewellery", "q": "jhumka earrings for women", "w": 15, "tip": "Choose light jhumkas if the outfit is heavy"}, {"name": "Juttis / sandals", "q": "jutti for women", "w": 15, "tip": "Pick a comfortable sole; you'll wear them for hours"}, {"name": "Potli / clutch", "q": "potli bag for women", "w": 10, "tip": "Enough for a phone and lipstick, that's all"}, {"name": "Dupatta / stole", "q": "dupatta for women", "w": 15, "tip": "A contrast colour lifts the look"}]}, {"id": "office", "label": "Office", "items": [{"name": "Kurti / formal top", "q": "formal kurti for women office", "w": 40, "tip": "Solid colours and light fabric"}, {"name": "Palazzo / trousers", "q": "palazzo trousers for women", "w": 20, "tip": "Should work with 2-3 tops"}, {"name": "Handbag", "q": "handbag for women office", "w": 25, "tip": "Check the laptop or diary size"}, {"name": "Flats / sandals", "q": "flats for women formal", "w": 15, "tip": "You'll wear them all day"}]}, {"id": "college", "label": "College / everyday", "items": [{"name": "Top / co-ord set", "q": "co-ord set for women", "w": 40, "tip": "One set, ready in a minute"}, {"name": "Sneakers", "q": "sneakers for women", "w": 30, "tip": "White or neutral goes with everything"}, {"name": "Sling / backpack", "q": "sling bag for women", "w": 20, "tip": "Get one with a zip; it's safer"}, {"name": "Hair accessories", "q": "hair accessories scrunchies for women", "w": 10, "tip": "Cheap, and it changes the look"}]}, {"id": "party", "label": "Party / date", "items": [{"name": "Dress", "q": "western dress for women party", "w": 45, "tip": "Keep just one statement piece"}, {"name": "Block heels", "q": "block heels for women", "w": 20, "tip": "More comfortable than pencil heels"}, {"name": "Clutch", "q": "clutch bag for women party", "w": 15, "tip": "Metallic or solid colour"}, {"name": "Earrings", "q": "party earrings for women", "w": 20, "tip": "Big earrings if the dress is simple"}]}, {"id": "winter", "label": "Winter look", "items": [{"name": "Shrug / jacket", "q": "women shrug jacket winter", "w": 40, "tip": "A long shrug works over kurtas and dresses"}, {"name": "Sweater / sweatshirt", "q": "women sweater", "w": 25, "tip": "Deep colours, for more than one layer"}, {"name": "Stole / scarf", "q": "woolen scarf stole for women", "w": 15, "tip": "The cheapest and most useful"}, {"name": "Boots / shoes", "q": "boots for women winter", "w": 20, "tip": "Look for a sole with grip"}]}], "ui": {"now": "Showing options <strong>%s<\/strong>.", "see": "See on Amazon", "total": "Total ≈ "}};
+  var AFFILIATE_TAG = (window.VE_CONFIG && window.VE_CONFIG.tag) || "YOURTAG-21";
+  var BANDS = D.bands, CATS = D.cats, NOTES = D.notes, OCCS = D.occs, UI = D.ui;
+  var QUICK_BUDGETS = [1500, 3000, 5000, 8000];
+  var state = { band: "999" };
+  var fin = { occ: "shaadi", budget: 3000 };
+
+  function link(q, band) {
+    var query = band.suffix ? q + " " + band.suffix : q;
+    return "https://www.amazon.in/s?k=" + encodeURIComponent(query) + "&tag=" + encodeURIComponent(AFFILIATE_TAG);
+  }
+  function currentBand() {
+    for (var i = 0; i < BANDS.length; i++) if (BANDS[i].id === state.band) return BANDS[i];
+    return BANDS[0];
+  }
+  function rupee(n) { return "₹" + n.toLocaleString("en-IN"); }
+
+  function renderBands() {
+    var ul = document.getElementById("bands");
+    ul.innerHTML = "";
+    BANDS.forEach(function (b) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tag";
+      btn.id = "band-" + b.id;
+      btn.setAttribute("aria-pressed", String(b.id === state.band));
+      btn.innerHTML = "<b>" + b.num + "</b><span>" + b.sub + "</span>";
+      btn.addEventListener("click", function () { state.band = b.id; renderBands(); renderShop(); });
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+  }
+
+  function renderShop() {
+    var band = currentBand();
+    document.getElementById("now").innerHTML = UI.now.replace("%s", band.say);
+    var grid = document.getElementById("grid");
+    grid.innerHTML = "";
+    CATS.forEach(function (c) {
+      var a = document.createElement("a");
+      a.className = "card";
+      a.href = link(c.q, band);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer sponsored nofollow";
+      a.innerHTML = '<span class="swatch"><span class="deva" lang="hi">' + c.deva + '</span></span><span class="cbody"><h3>' + c.name + "</h3><p>" + c.hint + '</p><span class="go">' + UI.see + " &rarr;</span></span>";
+      grid.appendChild(a);
+    });
+  }
+
+  function renderNotes() {
+    var wrap = document.getElementById("notesGrid");
+    NOTES.forEach(function (n) {
+      var d = document.createElement("article");
+      d.className = "note";
+      d.innerHTML = "<h3>" + n.h + "</h3><p>" + n.p + '</p><a href="' + link(n.q, BANDS[3]) + '" target="_blank" rel="noopener noreferrer sponsored nofollow">' + n.cta + " &rarr;</a>";
+      wrap.appendChild(d);
+    });
+  }
+
+  function renderFinder() {
+    var occUl = document.getElementById("occs");
+    occUl.innerHTML = "";
+    OCCS.forEach(function (o) {
+      var li = document.createElement("li");
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "pill"; b.textContent = o.label;
+      b.setAttribute("aria-pressed", String(o.id === fin.occ));
+      b.addEventListener("click", function () { fin.occ = o.id; renderFinder(); });
+      li.appendChild(b); occUl.appendChild(li);
+    });
+
+    var bUl = document.getElementById("budgets");
+    bUl.innerHTML = "";
+    QUICK_BUDGETS.forEach(function (n) {
+      var li = document.createElement("li");
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "pill"; b.textContent = rupee(n);
+      b.setAttribute("aria-pressed", String(n === fin.budget));
+      b.addEventListener("click", function () { fin.budget = n; renderFinder(); });
+      li.appendChild(b); bUl.appendChild(li);
+    });
+
+    var inp = document.getElementById("budget");
+    if (document.activeElement !== inp) inp.value = fin.budget;
+
+    var occ = OCCS[0];
+    for (var i = 0; i < OCCS.length; i++) if (OCCS[i].id === fin.occ) occ = OCCS[i];
+    var list = document.getElementById("look");
+    list.innerHTML = "";
+    var sum = 0;
+    occ.items.forEach(function (it) {
+      var cap = Math.max(150, Math.round(fin.budget * it.w / 100 / 50) * 50);
+      sum += cap;
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = link(it.q, { suffix: "under " + cap });
+      a.target = "_blank";
+      a.rel = "noopener noreferrer sponsored nofollow";
+      a.innerHTML = '<span class="nm">' + it.name + '</span><span class="cap">' + rupee(cap) + '</span><span class="sub">' + it.tip + " &middot; " + UI.see + " &rarr;</span>";
+      li.appendChild(a); list.appendChild(li);
+    });
+    document.getElementById("total").textContent = UI.total + rupee(sum);
+  }
+
+  document.getElementById("budget").addEventListener("input", function (e) {
+    var v = parseInt(e.target.value, 10);
+    if (v >= 500 && v <= 50000) { fin.budget = v; renderFinder(); }
+  });
+
+  renderBands();
+  renderFinder();
+  renderShop();
+  renderNotes();
+</script>
+</body>
+</html>

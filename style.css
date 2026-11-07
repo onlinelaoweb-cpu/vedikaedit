@@ -1,0 +1,132 @@
+/* The Vedika Edit: shared styles for guide, About and Privacy pages */
+
+  :root {
+    --bg: #FAF5F7; --surface: #FFFFFF; --ink: #1F0F1D; --muted: #6E5B69; --line: #EADCE3;
+    --accent: #B0125B; --hero-bg: #3A0F3B; --hero-bg-2: #5A1A55; --hero-fg: #FFF7FA; --hero-muted: #D9BFD0;
+    --gold: #E2B04A; --gold-line: rgba(226, 176, 74, 0.55); --shadow: rgba(58, 15, 59, 0.28);
+    --font-display: "Bodoni Moda", "Tiro Devanagari Hindi", "Noto Serif Devanagari", "Didot", "Times New Roman", serif;
+    --font-body: "Hanken Grotesk", "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+    --font-deva: "Tiro Devanagari Hindi", "Noto Serif Devanagari", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #140B13; --surface: #211420; --ink: #F6ECF2; --muted: #B9A5B3; --line: #3A2B38;
+      --accent: #FF6FA8; --hero-bg: #2A0B2B; --hero-bg-2: #45143F; --shadow: rgba(0, 0, 0, 0.55);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #140B13; --surface: #211420; --ink: #F6ECF2; --muted: #B9A5B3; --line: #3A2B38;
+    --accent: #FF6FA8; --hero-bg: #2A0B2B; --hero-bg-2: #45143F; --shadow: rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .inner { width: 100%; max-width: 1072px; margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+  .band-hero {
+    background:
+      radial-gradient(circle at 1px 1px, rgba(226, 176, 74, 0.16) 1.4px, transparent 1.7px) 0 0 / 22px 22px,
+      linear-gradient(165deg, var(--hero-bg) 0%, var(--hero-bg-2) 130%);
+    color: var(--hero-fg); padding-block: 18px 52px;
+  }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 28px; }
+  .brand { font-family: "Bodoni Moda", "Didot", "Times New Roman", serif; font-weight: 700; font-size: 1.4rem; text-decoration: none; }
+  .brand i { color: var(--gold); font-weight: 500; }
+  .top nav { display: flex; gap: 22px; font-size: 0.9rem; }
+  .top nav a { text-decoration: none; color: var(--hero-muted); }
+  .top nav a:hover { color: var(--gold); }
+  .crumbs { font-size: 0.85rem; color: var(--hero-muted); margin-bottom: 18px; }
+  .crumbs a { text-decoration: none; }
+  .crumbs a:hover { color: var(--gold); }
+  .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .band-hero .label { color: var(--gold); }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 6.4vw, 3.5rem); line-height: 1.08; margin: 8px 0 0; text-wrap: balance; max-width: 22ch; }
+  .updated { margin: 14px 0 0; font-size: 0.82rem; color: var(--hero-muted); }
+
+  .article { max-width: 720px; margin-inline: auto; padding-block: 48px 64px; display: flex; flex-direction: column; gap: 44px; }
+  .article section { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .article p { margin: 0; max-width: 65ch; }
+  .lead p { font-size: 1.08rem; }
+  h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.4rem, 4vw, 1.85rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+  .checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .checklist li { position: relative; padding-left: 24px; max-width: 65ch; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  .checklist strong { font-weight: 600; }
+
+  .tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px; }
+  .tbl { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+  .tbl th, .tbl td { padding: 11px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+  .tbl td:last-child, .tbl th:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tbl tbody tr:last-child td { border-bottom: 0; }
+  .tbl tfoot td { font-weight: 700; border-top: 1px solid var(--ink); border-bottom: 0; font-family: var(--font-display); font-size: 1.1rem; }
+  .tbl.mix td:last-child, .tbl.mix th:last-child { text-align: left; white-space: normal; }
+
+  .note-small { font-size: 0.85rem; color: var(--muted); }
+  .amz-links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .amz { text-decoration: none; padding: 10px 16px; border: 1.5px solid var(--ink); border-radius: 999px; font-weight: 600; font-size: 0.9rem; background: var(--surface); }
+  .amz:hover { background: var(--hero-bg); border-color: var(--hero-bg); color: var(--hero-fg); }
+
+  details { border-top: 1px solid var(--line); padding: 14px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin-top: 8px; color: var(--muted); }
+
+  .cta { padding: 26px; background: var(--hero-bg); color: var(--hero-fg); border-radius: 6px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .cta h2 { color: var(--hero-fg); }
+  .cta a { text-decoration: none; padding: 10px 18px; border-radius: 999px; background: var(--gold); color: #2A0B2B; font-weight: 600; }
+
+  .go { margin-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--gold); align-self: flex-start; }
+
+  .band-foot { background: var(--hero-bg); color: var(--hero-muted); padding-block: 32px 36px; font-size: 0.85rem; }
+  .band-foot .inner { display: flex; flex-direction: column; gap: 8px; }
+  .band-foot p { margin: 0; max-width: 70ch; }
+  .foot-brand { font-family: "Bodoni Moda", "Didot", "Times New Roman", serif; font-weight: 700; font-size: 1.2rem; color: var(--hero-fg); }
+  .foot-brand i { color: var(--gold); font-weight: 500; }
+
+  .guides { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .gcard { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px; text-decoration: none; transition: transform .18s ease, border-color .18s ease; }
+  .gcard:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .glabel { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .gcard h3 { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.25; margin: 0; }
+  .gcard p { margin: 0; color: var(--muted); font-size: 0.9rem; flex: 1; }
+  .band-foot a { color: var(--hero-fg); }
+  @media (prefers-reduced-motion: reduce) { .gcard { transition: none; } .gcard:hover { transform: none; } }
+
+  /* language switcher */
+  .top { align-items: center; }
+  .top-right { display: flex; align-items: center; gap: 12px 22px; flex-wrap: wrap; margin-left: auto; }
+  .top-right nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  details.lang { position: relative; border: 0; padding: 0; font-size: 0.9rem; margin-left: auto; }
+  details.lang:last-of-type { border: 0; }
+  .lang summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    border: 1.5px solid var(--gold-line); border-radius: 999px; color: var(--hero-fg); font-weight: 500; }
+  .lang summary::-webkit-details-marker { display: none; }
+  .lang summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(45deg) translateY(-2px); }
+  .lang summary:hover, .lang[open] summary { border-color: var(--gold); background: rgba(226, 176, 74, 0.12); }
+  .lang-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; width: 250px; max-height: 70vh; overflow-y: auto;
+    background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-top: 3px solid var(--gold); border-radius: 6px;
+    box-shadow: 0 24px 44px -24px var(--shadow); padding: 8px; display: flex; flex-direction: column; }
+  .lang-menu a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 9px 10px; border-radius: 4px; text-decoration: none; color: var(--ink); }
+  .lang-menu a small { color: var(--muted); font-size: 0.75rem; }
+  .lang-menu a:hover { background: var(--bg); color: var(--accent); }
+  .lang-menu a[aria-current="true"] { font-weight: 600; background: var(--bg); }
+  .lang-menu a.off { opacity: 0.6; }
+  .lang-sep { margin: 8px 0 2px; padding: 10px 10px 4px; border-top: 1px solid var(--line); font-size: 0.72rem; color: var(--muted); }
+  .lang-hint { margin: 4px 10px 6px; font-size: 0.78rem; color: var(--accent); }
+  @media (max-width: 640px) { .top-right { width: 100%; justify-content: space-between; } }
+
+  /* Hindi: Devanagari needs more line-height, no letter-spacing, and Tiro has a single weight */
+  :root:lang(hi) body { line-height: 1.8; }
+  :root:lang(hi) h1, :root:lang(hi) h2, :root:lang(hi) h3 { font-weight: 400; line-height: 1.3; letter-spacing: 0; }
+  :root:lang(hi) h1 { max-width: 17ch; }
+  :root:lang(hi) h1 em { font-style: normal; }
+  :root:lang(hi) .label, :root:lang(hi) .glabel { letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+  :root:lang(hi) .tbl tfoot td { font-weight: 400; }
+  :root:lang(hi) .tag b, :root:lang(hi) .cap, :root:lang(hi) .total strong { font-weight: 700; }
+  :root:lang(hi) .deva-line.alt { font-family: var(--font-display); font-style: italic; letter-spacing: 0.02em; }
+  :root:lang(hi) h1 { max-width: 24ch; font-size: clamp(1.8rem, 5.6vw, 3rem); }
