@@ -1,0 +1,386 @@
+<title>The Vedika Edit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Budget mein stylish fashion finds: kurtis, sarees, jewellery aur winter layers, price ke hisaab se chune hue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Hanken+Grotesk:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+  /* Layout: one editorial column. A price-tag row is the hero and drives every shop link below. */
+  :root {
+    --bg: #FBF7F9;
+    --surface: #FFFFFF;
+    --ink: #22121E;
+    --muted: #6B5A66;
+    --line: #E8DCE3;
+    --accent: #B0125B;
+    --accent-ink: #FFFFFF;
+    --mark: #F2B632;
+    --font-display: "Bodoni Moda", "Didot", "Times New Roman", serif;
+    --font-body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-deva: "Tiro Devanagari Hindi", "Noto Serif Devanagari", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #170E15; --surface: #241923; --ink: #F6ECF2; --muted: #B9A5B3;
+      --line: #3A2B38; --accent: #FF5FA2; --accent-ink: #2A0A19; --mark: #F2B632;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #170E15; --surface: #241923; --ink: #F6ECF2; --muted: #B9A5B3;
+    --line: #3A2B38; --accent: #FF5FA2; --accent-ink: #2A0A19; --mark: #F2B632;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-block: 20px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 1040px; margin-inline: auto; display: flex; flex-direction: column; gap: 56px; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; letter-spacing: 0.01em; text-decoration: none; }
+  .brand i { color: var(--accent); font-weight: 500; }
+  .top nav { display: flex; gap: 20px; font-size: 0.9rem; }
+  .top nav a { text-decoration: none; color: var(--muted); }
+  .top nav a:hover { color: var(--accent); }
+
+  .hero { display: flex; flex-direction: column; gap: 24px; }
+  .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2.5rem, 9vw, 5rem); line-height: 1.02; letter-spacing: -0.01em;
+    margin: 0; text-wrap: balance; max-width: 14ch;
+  }
+  h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .lede { max-width: 56ch; margin: 0; color: var(--muted); font-size: 1.05rem; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .tag {
+    all: unset; box-sizing: border-box; cursor: pointer;
+    display: flex; flex-direction: column; gap: 2px; min-width: 128px;
+    padding: 14px 18px 12px 28px; position: relative;
+    background: var(--surface); border: 1.5px solid var(--ink);
+    clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
+    border-radius: 2px;
+  }
+  .tag::before {
+    content: ""; position: absolute; left: 12px; top: 50%; width: 7px; height: 7px;
+    margin-top: -3.5px; border-radius: 50%; background: var(--mark); border: 1.5px solid var(--ink);
+  }
+  .tag b { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; font-weight: 700; }
+  .tag span { font-size: 0.78rem; color: var(--muted); }
+  .tag:hover { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+  .tag[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+  .tag[aria-pressed="true"] b, .tag[aria-pressed="true"] span { color: var(--accent-ink); }
+  .tag:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+  .disclosure { font-size: 0.82rem; color: var(--muted); margin: 0; max-width: 62ch; }
+
+  .section-head { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+  h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.6rem, 5vw, 2.3rem); line-height: 1.1; margin: 0; text-wrap: balance; }
+  .now { color: var(--muted); font-size: 0.95rem; margin: 0; }
+  .now strong { color: var(--accent); font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+  .card {
+    display: flex; flex-direction: column; gap: 6px; min-width: 0;
+    padding: 20px; text-decoration: none;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .deva { font-family: var(--font-deva); font-size: 2.3rem; line-height: 1.2; color: var(--accent); }
+  .card h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.9rem; flex: 1; }
+  .go { margin-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--mark); align-self: flex-start; }
+
+  .notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 28px; }
+  .note { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding-top: 14px; border-top: 2px solid var(--ink); }
+  .note h3 { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.2; margin: 0; }
+  .note p { margin: 0; color: var(--muted); }
+  .note a { font-size: 0.9rem; font-weight: 600; color: var(--accent); }
+
+  .finder { display: flex; flex-direction: column; gap: 22px; padding: 24px; background: var(--surface); border: 1.5px solid var(--ink); border-radius: 2px; }
+  .f-row { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .pill {
+    all: unset; box-sizing: border-box; cursor: pointer;
+    padding: 8px 14px; border: 1.5px solid var(--line); border-radius: 999px;
+    font-size: 0.9rem; font-weight: 500; background: var(--bg);
+  }
+  .pill:hover { border-color: var(--accent); }
+  .pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .pill:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .budget-input { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .budget-input input {
+    font: inherit; width: 9ch; padding: 8px 10px; border: 1.5px solid var(--line);
+    background: var(--bg); color: var(--ink); border-radius: 2px;
+  }
+  .budget-input input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .look { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .look li { border-bottom: 1px solid var(--line); }
+  .look a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 14px 2px; text-decoration: none; align-items: baseline; }
+  .look a:hover .nm { color: var(--accent); }
+  .nm { font-weight: 600; min-width: 0; }
+  .cap { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .sub { grid-column: 1 / -1; font-size: 0.85rem; color: var(--muted); }
+  .total { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; font-size: 0.9rem; color: var(--muted); }
+  .total strong { color: var(--ink); font-family: var(--font-display); font-size: 1.25rem; }
+
+  footer { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); }
+  footer p { margin: 0; max-width: 70ch; }
+
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">The Vedika <i>Edit</i></a>
+    <nav aria-label="Sections">
+      <a href="#finder">Outfit finder</a>
+      <a href="#shop">Shop</a>
+      <a href="#notes">Style notes</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <span class="label">Fashion finds &middot; Amazon.in</span>
+    <h1>Stylish dikho, <em>budget</em> mein.</h1>
+    <p class="lede">Kurtis se lekar jhumke tak, Amazon par mile hue fashion finds, price ke hisaab se chune hue. Pehle apna budget chuno, neeche ke saare links usi ke hisaab se khulenge.</p>
+    <ul class="tags" id="bands" aria-label="Budget chuno"></ul>
+    <p class="disclosure">Disclosure: As an Amazon Associate I earn from qualifying purchases. Link se kharidne par aapko koi extra paisa nahi lagta.</p>
+  </section>
+
+  <section id="finder" aria-labelledby="finder-h">
+    <div class="section-head">
+      <span class="label">Outfit finder</span>
+      <h2 id="finder-h">Poora look, apne budget mein</h2>
+      <p class="now">Occasion aur total budget chuno. Har cheez ke liye alag budget milega, aur link seedha Amazon par khulega.</p>
+    </div>
+    <div class="finder">
+      <div class="f-row">
+        <span class="label" id="occ-label">Kahan jaana hai?</span>
+        <ul class="pills" id="occs" aria-labelledby="occ-label"></ul>
+      </div>
+      <div class="f-row">
+        <label class="label" for="budget">Total budget</label>
+        <div class="budget-input">
+          <ul class="pills" id="budgets" aria-label="Budget chuno"></ul>
+          <span>ya likho: &#8377;</span>
+          <input id="budget" type="number" inputmode="numeric" min="500" max="50000" step="100" value="3000">
+        </div>
+      </div>
+      <ul class="look" id="look" aria-live="polite"></ul>
+      <div class="total"><span>Price Amazon par badalte rehte hain, ye sirf budget ka andaaza hai.</span><strong id="total"></strong></div>
+    </div>
+  </section>
+
+  <section id="shop" aria-labelledby="shop-h">
+    <div class="section-head">
+      <span class="label">Category ke hisaab se</span>
+      <h2 id="shop-h">Kya dhoondh rahi ho?</h2>
+      <p class="now" id="now" aria-live="polite"></p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="notes" aria-labelledby="notes-h">
+    <div class="section-head">
+      <span class="label">November &middot; shaadi aur sardi</span>
+      <h2 id="notes-h">Is season ke style notes</h2>
+    </div>
+    <div class="notes" id="notesGrid"></div>
+  </section>
+
+  <footer>
+    <p>As an Amazon Associate I earn from qualifying purchases.</p>
+    <p>Price, offers aur availability Amazon.in par kabhi bhi badal sakte hain. Kharidne se pehle Amazon par final price dekh lein. Saare links Amazon.in par khulte hain.</p>
+    <p>&copy; The Vedika Edit</p>
+  </footer>
+</div>
+
+<script>
+  // Apna Amazon Associates tracking ID yahan daalo (jaise "vedikaedit-21").
+  var AFFILIATE_TAG = "YOURTAG-21";
+
+  var BANDS = [
+    { id: "499",  num: "₹499",  sub: "ke andar",     suffix: "under 499",  say: "₹499 ke andar" },
+    { id: "999",  num: "₹999",  sub: "ke andar",     suffix: "under 999",  say: "₹999 ke andar" },
+    { id: "1999", num: "₹1999", sub: "ke andar",     suffix: "under 1999", say: "₹1999 ke andar" },
+    { id: "any",  num: "Sab",   sub: "koi limit nahi", suffix: "",           say: "kisi bhi budget" }
+  ];
+
+  var CATS = [
+    { deva: "कुर्ती", name: "Kurtis & Kurta Sets", hint: "Office se shaadi tak, roz ke liye aur function ke liye.", q: "kurta set for women" },
+    { deva: "साड़ी", name: "Sarees", hint: "Cotton, georgette aur silk-look, har occasion ke liye.", q: "saree for women" },
+    { deva: "को-ऑर्ड", name: "Co-ord Sets", hint: "Ek set, ek minute mein ready look.", q: "co-ord set for women" },
+    { deva: "ड्रेस", name: "Western Dresses", hint: "Brunch, date aur outing ke liye.", q: "western dress for women" },
+    { deva: "झुमके", name: "Jhumkas & Jewellery", hint: "Outfit simple ho to jhumke baat kar dete hain.", q: "jhumka earrings for women" },
+    { deva: "बैग", name: "Handbags & Slings", hint: "Rozmarra ke bag aur party clutches.", q: "handbag for women" },
+    { deva: "जूतियाँ", name: "Juttis & Sandals", hint: "Ethnic wear ke saath comfortable footwear.", q: "jutti for women" },
+    { deva: "जैकेट", name: "Shrugs & Winter Layers", hint: "NCR ki sardi ke liye shrug, jacket aur stole.", q: "women shrug jacket winter" }
+  ];
+
+  var NOTES = [
+    { h: "Shaadi mein guest ho to", p: "Outfit heavy ho to jewellery halki rakho. Outfit simple ho to jhumke ya choker ko star banao. Dono ek saath bhaari mat karo.", q: "wedding guest ethnic wear women", cta: "Ethnic looks dekho" },
+    { h: "Sardi mein layering", p: "Kurta ya dress ke upar lamba shrug daalo. Gehre rang aur ek stole, bas look poora ho jata hai.", q: "long shrug for women", cta: "Shrugs dekho" },
+    { h: "Budget ka simple rule", p: "Ek statement piece lo, baaki cheezein basic rakho. Isse wardrobe mein har cheez 3-4 tarah se pehni ja sakti hai.", q: "kurti with dupatta set", cta: "Kurti sets dekho" }
+  ];
+
+  var state = { band: "999" };
+
+  function link(q, band) {
+    var query = band.suffix ? q + " " + band.suffix : q;
+    return "https://www.amazon.in/s?k=" + encodeURIComponent(query) + "&tag=" + encodeURIComponent(AFFILIATE_TAG);
+  }
+  function currentBand() {
+    for (var i = 0; i < BANDS.length; i++) if (BANDS[i].id === state.band) return BANDS[i];
+    return BANDS[0];
+  }
+
+  function renderBands() {
+    var ul = document.getElementById("bands");
+    ul.innerHTML = "";
+    BANDS.forEach(function (b) {
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tag";
+      btn.id = "band-" + b.id;
+      btn.setAttribute("aria-pressed", String(b.id === state.band));
+      btn.innerHTML = "<b>" + b.num + "</b><span>" + b.sub + "</span>";
+      btn.addEventListener("click", function () { state.band = b.id; renderBands(); renderShop(); });
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+  }
+
+  function renderShop() {
+    var band = currentBand();
+    document.getElementById("now").innerHTML = "Abhi dikh rahe hain: <strong>" + band.say + "</strong> wale options.";
+    var grid = document.getElementById("grid");
+    grid.innerHTML = "";
+    CATS.forEach(function (c) {
+      var a = document.createElement("a");
+      a.className = "card";
+      a.href = link(c.q, band);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer sponsored nofollow";
+      a.innerHTML = '<span class="deva" lang="hi">' + c.deva + "</span><h3>" + c.name + "</h3><p>" + c.hint + '</p><span class="go">Amazon par dekho &rarr;</span>';
+      grid.appendChild(a);
+    });
+  }
+
+  function renderNotes() {
+    var wrap = document.getElementById("notesGrid");
+    NOTES.forEach(function (n) {
+      var d = document.createElement("article");
+      d.className = "note";
+      d.innerHTML = "<h3>" + n.h + "</h3><p>" + n.p + '</p><a href="' + link(n.q, BANDS[3]) + '" target="_blank" rel="noopener noreferrer sponsored nofollow">' + n.cta + " &rarr;</a>";
+      wrap.appendChild(d);
+    });
+  }
+
+  var OCCS = [
+    { id: "shaadi", label: "Shaadi / function", items: [
+      { name: "Kurta set / saree", q: "kurta set for women party wear", w: 45, tip: "Dupatta ke saath wale set aksar sasta padte hain" },
+      { name: "Jhumke / jewellery", q: "jhumka earrings for women", w: 15, tip: "Outfit bhaari ho to halke jhumke chuno" },
+      { name: "Juttis / sandals", q: "jutti for women", w: 15, tip: "Aaram wala sole lo, der tak pehenna hai" },
+      { name: "Potli / clutch", q: "potli bag for women", w: 10, tip: "Phone aur lipstick aa jaye, bas" },
+      { name: "Dupatta / stole", q: "dupatta for women", w: 15, tip: "Contrast rang se look uthta hai" }
+    ] },
+    { id: "office", label: "Office", items: [
+      { name: "Kurti / formal top", q: "formal kurti for women office", w: 40, tip: "Solid rang aur halka fabric" },
+      { name: "Palazzo / trousers", q: "palazzo trousers for women", w: 20, tip: "2-3 tops ke saath chal jaye" },
+      { name: "Handbag", q: "handbag for women office", w: 25, tip: "Laptop ya diary ka size dekh lo" },
+      { name: "Flats / sandals", q: "flats for women formal", w: 15, tip: "Poora din pehenna hai" }
+    ] },
+    { id: "college", label: "College / roz ka", items: [
+      { name: "Top / co-ord set", q: "co-ord set for women", w: 40, tip: "Ek set, ek minute mein ready" },
+      { name: "Sneakers", q: "sneakers for women", w: 30, tip: "Safed ya neutral rang har cheez ke saath chalta hai" },
+      { name: "Sling / backpack", q: "sling bag for women", w: 20, tip: "Zip wala lo, safe rehta hai" },
+      { name: "Hair accessories", q: "hair accessories scrunchies for women", w: 10, tip: "Sasta aur look badal deta hai" }
+    ] },
+    { id: "party", label: "Party / date", items: [
+      { name: "Dress", q: "western dress for women party", w: 45, tip: "Ek hi statement piece rakho" },
+      { name: "Block heels", q: "block heels for women", w: 20, tip: "Pencil heel se zyada aaram wale" },
+      { name: "Clutch", q: "clutch bag for women party", w: 15, tip: "Metallic ya solid rang" },
+      { name: "Earrings", q: "party earrings for women", w: 20, tip: "Dress simple ho to bade earrings" }
+    ] },
+    { id: "winter", label: "Sardi ka look", items: [
+      { name: "Shrug / jacket", q: "women shrug jacket winter", w: 40, tip: "Lamba shrug kurta aur dress dono par chalta hai" },
+      { name: "Sweater / sweatshirt", q: "women sweater", w: 25, tip: "Gehre rang, ek se zyada layer ke liye" },
+      { name: "Stole / scarf", q: "woolen scarf stole for women", w: 15, tip: "Sabse sasta aur sabse kaam ka" },
+      { name: "Boots / shoes", q: "boots for women winter", w: 20, tip: "Grip wala sole dekho" }
+    ] }
+  ];
+  var QUICK_BUDGETS = [1500, 3000, 5000, 8000];
+  var fin = { occ: "shaadi", budget: 3000 };
+
+  function rupee(n) { return "₹" + n.toLocaleString("en-IN"); }
+
+  function renderFinder() {
+    var occUl = document.getElementById("occs");
+    occUl.innerHTML = "";
+    OCCS.forEach(function (o) {
+      var li = document.createElement("li");
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "pill"; b.textContent = o.label;
+      b.setAttribute("aria-pressed", String(o.id === fin.occ));
+      b.addEventListener("click", function () { fin.occ = o.id; renderFinder(); });
+      li.appendChild(b); occUl.appendChild(li);
+    });
+
+    var bUl = document.getElementById("budgets");
+    bUl.innerHTML = "";
+    QUICK_BUDGETS.forEach(function (n) {
+      var li = document.createElement("li");
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "pill"; b.textContent = rupee(n);
+      b.setAttribute("aria-pressed", String(n === fin.budget));
+      b.addEventListener("click", function () { fin.budget = n; renderFinder(); });
+      li.appendChild(b); bUl.appendChild(li);
+    });
+
+    var inp = document.getElementById("budget");
+    if (document.activeElement !== inp) inp.value = fin.budget;
+
+    var occ = OCCS[0];
+    for (var i = 0; i < OCCS.length; i++) if (OCCS[i].id === fin.occ) occ = OCCS[i];
+    var list = document.getElementById("look");
+    list.innerHTML = "";
+    var sum = 0;
+    occ.items.forEach(function (it) {
+      var cap = Math.max(150, Math.round(fin.budget * it.w / 100 / 50) * 50);
+      sum += cap;
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = link(it.q, { suffix: "under " + cap });
+      a.target = "_blank";
+      a.rel = "noopener noreferrer sponsored nofollow";
+      a.innerHTML = '<span class="nm">' + it.name + '</span><span class="cap">' + rupee(cap) + '</span><span class="sub">' + it.tip + " &middot; Amazon par dekho &rarr;</span>";
+      li.appendChild(a); list.appendChild(li);
+    });
+    document.getElementById("total").textContent = "Total ≈ " + rupee(sum);
+  }
+
+  document.getElementById("budget").addEventListener("input", function (e) {
+    var v = parseInt(e.target.value, 10);
+    if (v >= 500 && v <= 50000) { fin.budget = v; renderFinder(); }
+  });
+
+  renderBands();
+  renderFinder();
+  renderShop();
+  renderNotes();
+</script>
